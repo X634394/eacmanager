@@ -44,8 +44,8 @@ resource "null_resource" "createworkspaces" {
   }
   provisioner "local-exec" {
     when        = destroy
-    command     = "rm -rf .terraform && rm -f terraform.tfstate && cp terraform.tfstate.backup terraform.tfstate && terraform init && terraform destroy -auto-approve"
-    #command     = "echo S | rmdir /S .terraform && del /f terraform.tfstate && copy terraform.tfstate.backup terraform.tfstate && terraform init && terraform destroy -auto-approve"
+    #command     = "rm -rf .terraform && rm -f terraform.tfstate && cp terraform.tfstate.backup terraform.tfstate && terraform init && terraform destroy -auto-approve"
+    command     = "echo S | rmdir /S .terraform && del /f terraform.tfstate && copy terraform.tfstate.backup terraform.tfstate && terraform init && terraform destroy -auto-approve"
     working_dir = "tfe/"
   }
   depends_on = [
